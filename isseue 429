@@ -1,0 +1,123 @@
+
+                Verfügbare Knöpfe
+                <ul class="js-sortable-source" id="dragtarget">
+
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="1"><i class="fas fa-plus"></i> xxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="2"><i class="fas fa-times"></i> xxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="3"><i class="far fa-address-card"></i>xxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="4"><i class="fas fa-sitemap"></i> xxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="5"><i class="far fa-pencil-square"></i> xxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="6"><i class="fas fa-history"></i> xxxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="7"><i class="far fa-share-square"></i> xxxxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="8"><i class="fas fa-envelope"></i> xxxxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="9"><i class="far fa-times-circle"></i> xxxxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="10"><i class="fas fa-users"></i> xxxxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="11"><i class="fas fa-download"></i> xxxxxxxxx/Download</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="12"><i class="fas fa-globe"></i> xxxxxxxxx</li>
+                    <li class="btn btn-secondary btn-s btn-block btn-modal" id="13"><i class="fas fa-globe"></i> xxxxxxxxx Übersicht</li>
+  
+              /ul>
+
+
+                Aktive Knöpfe
+                <ul class="js-sortable-target sortable" id="droptarget">
+                 <li class="btn btn-secondary btn-s btn-block btn-modal" id="1"><i class="fas fa-plus"></i> xxxxxxxx <span class="resetbutton float-right" onclick="movesource('1');" title="in verfügbare Knöpfe verschieben"><i class="fas fa-times-circle"></i></span></li>                
+                 <li class="btn btn-secondary btn-s btn-block btn-modal" id="2"><i class="fas fa-times"></i> xxxxxxx <span class="resetbutton float-right" onclick="movesource('2');" title="in verfügbare Knöpfe verschieben"><i class="fas fa-times-circle"></i></span></li>
+                 and so on.........
+                </ul>
+
+
+
+
+  function movesource(id) {
+    switch(id) {
+      case '1':
+        $('#dragtarget').append('<li draggable="true" class="btn btn-secondary btn-s btn-block btn-modal" id="1"><i class="fas fa-plus"></i> xxxxxxxx</li>');
+        $('#droptarget #'+id).remove();
+      break;
+      case '2':
+        $('#dragtarget').append('<li draggable="true" class="btn btn-secondary btn-s btn-block btn-modal" id="2"><i class="fas fa-times"></i> xxxxxxxxx</li>');
+        $('#droptarget #'+id).remove();
+      break;
+      and so on ....
+  }
+  };
+
+
+
+
+  jQuery(function() {
+    sortable('.js-sortable-target', {
+      forcePlaceholderSize: true,
+      acceptFrom: '.js-sortable-source,.js-sortable-target'
+     });
+
+    sortable('.js-sortable-source', {
+      forcePlaceholderSize: false,
+      acceptFrom: '.js-sortable-source'
+     });
+
+
+
+
+
+
+sortable('.sortable')[0].addEventListener('sortupdate', function(e) {
+  /*sortableList.addEventListener('sortupdate', function(e) {*/
+    if((e.detail.origin.container.id != e.detail.destination.container.id) && (e.detail.destination.index>=0)){
+      switch(e.detail.item.id) {
+        case '1':
+          $('#1').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#1 span').attr('onclick','movesource("1");');
+        break;
+        case '2':
+          $('#2').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#2 span').attr('onclick','movesource("2");');
+        break;
+        case '3':
+          $('#3').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#3 span').attr('onclick','movesource("3");');
+        break;
+        case '4':
+          $('#4').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#4 span').attr('onclick','movesource("4");');
+        break;
+        case '5':
+          $('#5').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#5 span').attr('onclick','movesource("5");');
+        break;
+        case '6':
+          $('#6').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#6 span').attr('onclick','movesource("6");');
+        break;
+        case '7':
+          $('#7').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#7 span').attr('onclick','movesource("7");');
+        break;
+        case '8':
+          $('#8').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#8 span').attr('onclick','movesource("8");');
+        break;
+        case '9':
+          $('#9').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#9 span').attr('onclick','movesource("9");');
+        break;
+        case '10':
+          $('#10').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#10 span').attr('onclick','movesource("10");');
+        break;
+        case '11':
+          $('#11').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#11 span').attr('onclick','movesource("11");');
+        break;
+        case '12':
+          $('#12').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#12 span').attr('onclick','movesource("12");');
+        break;
+        case '13':
+          $('#13').append("<span class='resetbutton float-right'  title='in verfügbare Knöpfe verschieben'><i class='fas fa-times-circle'></i></span>");
+          $('#13 span').attr('onclick','movesource("13");');
+        break;
+      };
+    };
+  });
